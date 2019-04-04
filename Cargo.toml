@@ -2,7 +2,7 @@
 name = "Biscord"
 version = "0.1.0"
 authors = ["uglyluigi"]
-edition = "2019"
+edition = "2018"
 
 [dependencies]
 clipboard = "0.5.0"
