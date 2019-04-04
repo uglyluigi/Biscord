@@ -18,10 +18,10 @@ fn main() {
             let mut str_to_push: String = match c {
                 'a' => ":a:".to_string(),
                 'b' => ":b:".to_string(),
-                ' ' => " ".to_string(),
+                'c' | 'd' | 'e' | 'f' | 'g' | 'h' | 'i' | 'j' | 'k' | 'l' | 'm' | 'n' | 'o' | 'p' | 'q' | 'r' | 's' | 't' | 'u' | 'v' | 'w' | 'x' | 'y' | 'z' => format!(":regional_indicator_{}:", c),
                 '?' => ":question:".to_string(),
                 '!' => ":exclamation:".to_string(),
-                _ => format!(":regional_indicator_{}:", c)
+                _ => format!("{}", c),
             };
 
             str_to_push.push_str(" ");
