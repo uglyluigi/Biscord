@@ -23,3 +23,7 @@ scope of this project.
 # Is it fast?
 
 Rust makes everything fast.
+
+# Couldn't you have just written this in Python or Ruby or something?
+
+Yeah
