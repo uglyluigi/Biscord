@@ -3,9 +3,26 @@ use clipboard::{
     ClipboardProvider
 };
 
+use std::env;
+
 fn main() {
     if let Ok(mut provider) = Clipboard::new() {
-        let contents = provider.get_contents().unwrap();
+        let mut contents: String = String::new();
+        let cli_args: Vec<String> = env::args().collect();
+
+        if cli_args.len() > 1 {
+            /*
+                Ignore the first element in the args Vec because it's just the executable name
+                This slicing stuff is freaking awesome I love this language
+                Also Joins are sweet too, Java always playing catch up. This would require
+                Arrays.copyOfRange instead of a simple language idiom, and then
+                probably a StringBuilder to pack it all into a consumable format.
+                Rust is god like
+            */
+            contents = cli_args[1..].join(" ");
+        } else {
+            contents = provider.get_contents().unwrap();
+        }
 
         if contents.contains("regional_indicator_") {
             println!("Looks like that string was already Biscord'd; skipping");
