@@ -4,9 +4,25 @@ use clipboard::{
 };
 
 use std::env;
+use std::collections::HashMap;
+
+#[macro_use] extern crate maplit;
 
 fn main() {
     if let Ok(mut provider) = Clipboard::new() {
+        let number_map: HashMap<char, &str> = hashmap!{
+            '0' => "zero",
+            '1' => "one",
+            '2' => "two",
+            '3' => "three",
+            '4' => "four",
+            '5' => "five",
+            '6' => "six",
+            '7' => "seven",
+            '8' => "eight",
+            '9' => "nine"
+        };
+        
         let mut contents: String = String::new();
         let cli_args: Vec<String> = env::args().collect();
 
@@ -25,7 +41,7 @@ fn main() {
         }
 
         if contents.contains("regional_indicator_") {
-            println!("Looks like that string was already Biscord'd; skipping");
+            println!("Looks like that string was alreadybiscord'd; skipping");
             return;
         }
 
@@ -33,6 +49,7 @@ fn main() {
 
         for c in contents.to_lowercase().chars() {
             let mut str_to_push: String = match c {
+                '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' => format!(":{}:", number_map.get(&c).unwrap()),
                 'a' => ":a:".to_string(),
                 'b' => ":b:".to_string(),
                 'c' | 'd' | 'e' | 'f' | 'g' | 'h' | 'i' | 'j' | 'k' | 'l' | 'm' | 'n' | 'o' | 'p' | 'q' | 'r' | 's' | 't' | 'u' | 'v' | 'w' | 'x' | 'y' | 'z' => format!(":regional_indicator_{}:", c),
