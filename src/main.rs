@@ -41,7 +41,7 @@ fn main() {
         }
 
         if contents.contains("regional_indicator_") {
-            println!("Looks like that string was alreadybiscord'd; skipping");
+            println!("Looks like that string was already biscord'd; skipping");
             return;
         }
 
