@@ -1,8 +1,9 @@
 [package]
 name = "Biscord"
-version = "1.0.2"
+version = "1.0.3"
 authors = ["uglyluigi"]
 edition = "2018"
 
 [dependencies]
 clipboard = "0.5.0"
+maplit = "1.0.1"
